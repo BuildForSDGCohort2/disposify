@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=wasteline
+POSTGRES_USER=vRXVYBSkOHRrLgQfiuJWBplPdjwJuSrs
+POSTGRES_PASSWORD=XPGLWhj1oQo7CHPYgs3CN4skTqrXiURpVNFUvQaprDLD0b4uXwhiLfYELaIv37ju
