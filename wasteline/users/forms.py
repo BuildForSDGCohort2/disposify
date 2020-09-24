@@ -1,6 +1,9 @@
+from django import forms as d_forms
 from django.contrib.auth import forms, get_user_model
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+
+from .models import Collector, Customer
 
 User = get_user_model()
 
@@ -28,3 +31,21 @@ class UserCreationForm(forms.UserCreationForm):
             return username
 
         raise ValidationError(self.error_messages["duplicate_username"])
+
+
+class UserEditForm(d_forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ("name", "phone_number", "address")
+
+
+class CollectorEditForm(d_forms.ModelForm):
+    class Meta:
+        model = Collector
+        fields = ("description", "price_per_kg")
+
+
+class CustomerEditForm(d_forms.ModelForm):
+    class Meta:
+        model = Customer
+        fields = ()

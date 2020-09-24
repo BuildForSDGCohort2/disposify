@@ -78,7 +78,7 @@ class CustomerMore(models.Model):
     """
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    collector = models.ManyToManyField(
+    collectors = models.ManyToManyField(
         Collector, related_name="subscribers", blank=True
     )
 
