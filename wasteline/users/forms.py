@@ -3,7 +3,7 @@ from django.contrib.auth import forms, get_user_model
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
-from .models import Collector, Customer
+from .models import CollectorMore, CustomerMore
 
 User = get_user_model()
 
@@ -41,11 +41,11 @@ class UserEditForm(d_forms.ModelForm):
 
 class CollectorEditForm(d_forms.ModelForm):
     class Meta:
-        model = Collector
+        model = CollectorMore
         fields = ("description", "price_per_kg")
 
 
 class CustomerEditForm(d_forms.ModelForm):
     class Meta:
-        model = Customer
+        model = CustomerMore
         fields = ()
