@@ -1,5 +1,8 @@
 module.exports = {
-  purge: [],
+  purge: [
+    // Templates within theme app (e.g. base.html)
+    '../templates/**/*.html',
+  ],
   target: 'relaxed',
   prefix: '',
   important: false,
