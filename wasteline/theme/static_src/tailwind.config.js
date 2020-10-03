@@ -2,6 +2,8 @@ module.exports = {
   purge: [
     // Templates within theme app (e.g. base.html)
     '../templates/**/*.html',
+    // Templates in other apps
+    '../../templates/**/*.html',
   ],
   target: 'relaxed',
   prefix: '',
