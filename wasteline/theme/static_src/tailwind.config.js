@@ -1,15 +1,15 @@
 module.exports = {
-  purge: [
-    // Templates within theme app (e.g. base.html)
-    '../templates/**/*.html',
-    // Templates in other apps
-    '../../templates/**/*.html',
-  ],
+  purge: [],
   target: 'relaxed',
   prefix: '',
   important: false,
   separator: ':',
   theme: {
+    extend: {
+      fontFamily: {
+        'indie': ['"Indie Flower"']
+      }
+    },
     screens: {
       sm: '640px',
       md: '768px',
