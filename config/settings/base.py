@@ -69,6 +69,7 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "allauth.socialaccount.providers.facebook",
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
@@ -100,6 +101,32 @@ AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "users:redirect"
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-url
 LOGIN_URL = "account_login"
+# https://django-allauth.readthedocs.io/en/latest/providers.html#facebook
+SOCIALACCOUNT_PROVIDERS = {
+    "facebook": {
+        "METHOD": "oauth2",
+        "SCOPE": ["email", "public_profile"],
+        "AUTH_PARAMS": {"auth_type": "reauthenticate"},
+        "INIT_PARAMS": {"cookie": True},
+        "FIELDS": [
+            "id",
+            "first_name",
+            "last_name",
+            "middle_name",
+            "name",
+            "name_format",
+            "picture",
+            "short_name",
+        ],
+        "EXCHANGE_TOKEN": True,
+        "LOCALE_FUNC": lambda request: "en_US",
+        "VERIFIED_EMAIL": False,
+        "VERSION": "v7.0",
+    }
+}
+# facebook
+SOCIAL_AUTH_FACEBOOK_KEY = "secret!"  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = "secret!"  # app key
 
 # PASSWORDS
 # ------------------------------------------------------------------------------
