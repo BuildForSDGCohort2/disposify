@@ -74,6 +74,7 @@ THIRD_PARTY_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "tailwind",
+    "widget_tweaks",
 ]
 
 LOCAL_APPS = [
