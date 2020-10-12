@@ -12,14 +12,14 @@
 <!-- component -->
 <div class="text-center mt-6">
       <div class="flex items-center justify-center">
-         <svg fill="none" viewBox="0 0 24 24" class="w-12 h-12 text-blue-500" stroke="currentColor">
+         <svg fill="none" viewBox="0 0 24 24" class="w-12 h-12 text-blue-400" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
          </svg>
       </div>
       <h2 class="text-4xl tracking-tight">
          Sign in into your account
       </h2>
-      <span class="text-sm">or <a href="{{ signup_url }}" class="text-blue-500"> 
+      <span class="text-sm">or <a href="{{ signup_url }}" class="text-blue-400"> 
          register a new account
       </a>
    </span>
@@ -28,8 +28,12 @@
    {% comment %} login form {% endcomment %}
    <form method="POST" action="{% url 'account_login' %}" class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
       {% csrf_token %}
-         <!-- FIXME: The non-field errors are not styling -->
-         {{ form.non_field_errors|add_error_class:"text-red text-xs italic" }}
+      {% comment %} Non field errors {% endcomment %}
+      {% if form.errors %}
+         {% for error in form.non_field_errors %}
+            <p class="text-red-500 text-xs italic mb-4">{{ error }}</p>
+         {% endfor %}
+      {% endif %}
       {% with WIDGET_ERROR_CLASS="text-red text-xs italic" %}
          <div class="flex flex-wrap -mx-3 mb-6">
             {% comment %} username field {% endcomment %}
@@ -52,11 +56,11 @@
                   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                {% endif %}
                <div class="w-1/2 text-right">
-                  <a href="{% url 'account_reset_password' %}" class="text-blue-500 text-sm tracking-tight">Forget your password?</a>
+                  <a href="{% url 'account_reset_password' %}" class="text-blue-400 text-sm tracking-tight">Forget your password?</a>
                </div>
             </div>
             <div class="w-full md:w-full px-3 mb-6">
-               <button type="submit" class="appearance-none block w-full bg-blue-600 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Sign in</button>
+               <button type="submit" class="appearance-none block w-full bg-blue-400 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Sign in</button>
             </div>
             <div class="mx-auto -mb-6 pb-1">
                <span class="text-center text-xs text-gray-700">or sign up with</span>
