@@ -2,9 +2,23 @@
 {% block title %}{% block head_title %}{% endblock head_title %}{% endblock title %}
 
 {% block content %}
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    {% block inner %}{% endblock %}
+  <div class="text-center mt-6">
+    <div class="flex items-center justify-center">
+      <svg fill="none" viewBox="0 0 24 24" class="w-12 h-12 text-blue-400" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+      </svg>
+    </div>
+
+    <h2 class="text-4xl tracking-tight">
+      {% block account_heading %}{% endblock account_heading %}
+    </h2>
+
+    {% block account_subheading %}{% endblock account_subheading %}
+
   </div>
-</div>
+
+  {% comment %} main content {% endcomment %}
+  <div class="flex justify-center my-2 mx-4 md:mx-0">
+    {% block inner %}{% endblock inner %}
+  </div>
 {% endblock %}
