@@ -4,8 +4,11 @@
 
 {% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
+{% block account_heading %}
+  {% trans "Verify Your E-mail Address" %}
+{% endblock account_heading %}
+
 {% block inner %}
-<h1>{% trans "Verify Your E-mail Address" %}</h1>
 
 {% url 'account_email' as email_url %}
 
