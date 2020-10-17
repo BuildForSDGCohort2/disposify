@@ -4,9 +4,11 @@
 
 {% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
 
-{% block inner %}
-<h1>{% trans "Sign Up Closed" %}</h1>
+{% block account_heading %}
+  {% trans "Sign Up Closed" %}
+{% endblock account_heading %}
 
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+{% block inner %}
+  <p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
 {% endblock %}
 

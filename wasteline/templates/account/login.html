@@ -8,7 +8,7 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 
-
+{% comment %} ACCOUNT HEADING {% endcomment %}
 {% block account_heading %}
    Sign in into your account
 {% endblock account_heading %}
@@ -21,7 +21,9 @@
     </a>
   </span>
 {% endblock account_subheading %}
-   
+  
+
+
 {% block inner %}
   {% comment %} login form {% endcomment %}
   <form method="POST" action="{% url 'account_login' %}" class="w-full max-w-xl bg-white rounded-lg shadow-md p-6">
@@ -58,11 +60,15 @@
               </div>
           </div>
           <div class="w-full md:w-full px-3 mb-6">
-              <button type="submit" class="appearance-none block w-full bg-blue-400 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">Sign in</button>
+              <button type="submit" class="appearance-none block w-full bg-blue-400 text-gray-100 font-bold border border-gray-200 rounded-lg py-3 px-3 leading-tight hover:bg-blue-500 focus:outline-none focus:bg-white focus:border-gray-500">
+                Sign in</button>
           </div>
+
           <div class="mx-auto -mb-6 pb-1">
               <span class="text-center text-xs text-gray-700">or sign up with</span>
           </div>
+
+          {% comment %} SOCIAL ACCOUNTS LOGIN {% endcomment %}
           <div class="flex items-center w-full mt-2">
               <div class="w-full md:w-1/3 px-3 pt-4 mx-2 border-t border-gray-400">
                 <a href="{% provider_login_url 'facebook' %}">
@@ -88,6 +94,7 @@
                 </button>
               </div>
           </div>
+
         </div>
     {% endwith %}
   </form>
