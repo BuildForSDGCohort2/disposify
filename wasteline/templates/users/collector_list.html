@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  {% for collector in collectors %}
+    <h1>{{ collector.username }}</h1>
+  {% endfor %}
+{% endblock content %}
+  

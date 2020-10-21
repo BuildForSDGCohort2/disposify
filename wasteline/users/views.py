@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
 
+from .models import Collector
 from .forms import UserEditForm, CustomerEditForm, CollectorEditForm
 
 User = get_user_model()
@@ -84,3 +85,8 @@ def user_profile_update(request):
         "users/update.html",
         {"user_form": user_form, "profile_form": profile_form},
     )
+
+
+def collector_list(request):
+    collectors = Collector.objects.all()
+    return render(request, "users/collector_list.html", {"collectors": collectors},)
