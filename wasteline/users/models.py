@@ -8,6 +8,17 @@ class User(AbstractUser):
     """ General Model for Users
     """
 
+    class Types(models.TextChoices):
+        CUSTOMER = "CUSTOMER", "Customer"
+        COLECTOR = "COLECTOR", "Collector"
+
+    base_type = Types.CUSTOMER
+
+    # What type of user are we?
+    type = models.CharField(
+        _("Type"), max_length=50, choices=Types.choices, default=base_type
+    )
+
     is_customer = models.BooleanField(default=False)
     is_collector = models.BooleanField(default=False)
 

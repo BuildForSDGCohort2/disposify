@@ -38,6 +38,16 @@
     {% endif %}
 
     <div class="flex flex-wrap -mx-3 mb-6">
+      {% comment %} type field {% endcomment %}
+      <div class="w-full md:w-full px-3 mb-6">
+          <label for={{ form.type.id_for_label }} class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Select Account Type
+          </label>
+          {% render_field form.type class="shadow border rounded w-full py-2 px-3 text-grey-darker"%}
+          {% for error in form.type.errors %}
+            <p class="text-red-500 text-xs italic">{{ error }}</p>
+          {% endfor %}
+      </div>
       {% comment %} email field {% endcomment %}
       <div class="w-full md:w-full px-3 mb-6">
           <label for={{ form.email.id_for_label }} class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">

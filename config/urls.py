@@ -19,8 +19,8 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("wasteline.users.urls", namespace="users")),
-    path("accounts/signup/", view=SignUpView.as_view(), name="signup"),
     path("accounts/", include("allauth.urls")),
+    path("accounts/signup/", view=SignUpView.as_view(), name="signup"),
     path(
         "accounts/signup/customer/",
         view=CustomerSignUpView.as_view(),

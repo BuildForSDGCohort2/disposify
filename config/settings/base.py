@@ -296,6 +296,10 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_ADAPTER = "wasteline.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = "wasteline.users.adapters.SocialAccountAdapter"
+# my custom signup form
+ACCOUNT_FORMS = {
+    "signup": "wasteline.users.forms.WastelineSignUpForm",
+}
 
 # django-rest-framework
 # -------------------------------------------------------------------------------
