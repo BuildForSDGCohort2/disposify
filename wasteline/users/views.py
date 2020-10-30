@@ -5,10 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import DetailView, RedirectView, UpdateView
+from django.views.generic import DetailView, RedirectView, TemplateView, UpdateView
 
-from .models import Collector
-from .forms import UserEditForm, CustomerEditForm, CollectorEditForm
 
 User = get_user_model()
 
@@ -55,38 +53,5 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 user_redirect_view = UserRedirectView.as_view()
 
 
-@login_required
-def user_profile_update(request):
-    print(request.user)
-    if request.method == "POST":
-        user_form = UserEditForm(instance=request.user, data=request.POST)
-        if request.user.type == "CUSTOMER":
-            profile_form = CustomerEditForm(
-                instance=request.user, data=request.POST, files=request.FILES
-            )
-        else:
-            profile_form = CollectorEditForm(
-                instance=request.user, data=request.POST, files=request.FILES
-            )
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, "Profile updated successfully")
-        else:
-            messages.error(request, "Error updating your profile")
-    else:
-        user_form = UserEditForm(instance=request.user)
-        if request.user.type == "CUSTOMER":
-            profile_form = CustomerEditForm()
-        else:
-            profile_form = CollectorEditForm()
-    return render(
-        request,
-        "users/update.html",
-        {"user_form": user_form, "profile_form": profile_form},
-    )
-
-
-def collector_list(request):
-    collectors = Collector.objects.all()
-    return render(request, "users/collector_list.html", {"collectors": collectors},)
+class SignUpView(TemplateView):
+    template_name = "registration/signup.html"
