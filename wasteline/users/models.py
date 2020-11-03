@@ -19,15 +19,17 @@ class User(AbstractUser):
         _("Type"), max_length=50, choices=Types.choices, default=base_type
     )
 
-    is_customer = models.BooleanField(default=False)
-    is_collector = models.BooleanField(default=False)
-
     name = models.CharField(_("Name of User"), blank=True, max_length=255)
     phone_number = models.CharField(max_length=255, default="No Number")
     address = models.CharField(max_length=255, default="No address")
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.type = self.base_type
+        return super().save(*args, **kwargs)
 
 
 class Customer(models.Model):

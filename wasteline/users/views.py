@@ -1,11 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from django.views.generic import DetailView, RedirectView, TemplateView, UpdateView
+from django.views.generic import DetailView, RedirectView, UpdateView
 
 
 User = get_user_model()
@@ -52,6 +50,3 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 user_redirect_view = UserRedirectView.as_view()
 
-
-class SignUpView(TemplateView):
-    template_name = "registration/signup.html"

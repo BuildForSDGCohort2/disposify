@@ -6,9 +6,6 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from rest_framework.authtoken.views import obtain_auth_token
 
-from wasteline.users.views import SignUpView
-from wasteline.users.collector.views import CollectorSignUpView
-from wasteline.users.customer.views import CustomerSignUpView
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -20,17 +17,6 @@ urlpatterns = [
     # User management
     path("users/", include("wasteline.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    path("accounts/signup/", view=SignUpView.as_view(), name="signup"),
-    path(
-        "accounts/signup/customer/",
-        view=CustomerSignUpView.as_view(),
-        name="customer_signup",
-    ),
-    path(
-        "accounts/signup/collector/",
-        view=CollectorSignUpView.as_view(),
-        name="collector_signup",
-    ),
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
