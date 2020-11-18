@@ -21,7 +21,7 @@ django.setup()
 
 # -- Project information -----------------------------------------------------
 
-project = "wasteline"
+project = "disposify"
 copyright = """2020, JAY"""
 author = "JAY"
 

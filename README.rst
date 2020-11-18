@@ -1,4 +1,4 @@
-wasteline
+disposify
 =========
 
 Waste Management System
@@ -42,7 +42,7 @@ Running type checks with mypy:
 
 ::
 
-  $ mypy wasteline
+  $ mypy disposify
 
 Test coverage
 ^^^^^^^^^^^^^

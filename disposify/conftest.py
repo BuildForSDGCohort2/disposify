@@ -1,7 +1,7 @@
 import pytest
 
-from wasteline.users.models import User
-from wasteline.users.tests.factories import UserFactory
+from disposify.users.models import User
+from disposify.users.tests.factories import UserFactory
 
 
 @pytest.fixture(autouse=True)

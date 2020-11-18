@@ -81,12 +81,12 @@ AWS_S3_CUSTOM_DOMAIN = env("DJANGO_AWS_S3_CUSTOM_DOMAIN", default=None)
 aws_s3_domain = AWS_S3_CUSTOM_DOMAIN or f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 # STATIC
 # ------------------------
-STATICFILES_STORAGE = "wasteline.utils.storages.StaticRootS3Boto3Storage"
+STATICFILES_STORAGE = "disposify.utils.storages.StaticRootS3Boto3Storage"
 COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 STATIC_URL = f"https://{aws_s3_domain}/static/"
 # MEDIA
 # ------------------------------------------------------------------------------
-DEFAULT_FILE_STORAGE = "wasteline.utils.storages.MediaRootS3Boto3Storage"
+DEFAULT_FILE_STORAGE = "disposify.utils.storages.MediaRootS3Boto3Storage"
 MEDIA_URL = f"https://{aws_s3_domain}/media/"
 
 # TEMPLATES
@@ -106,12 +106,12 @@ TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa F405
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email
 DEFAULT_FROM_EMAIL = env(
-    "DJANGO_DEFAULT_FROM_EMAIL", default="wasteline <noreply@example.com>"
+    "DJANGO_DEFAULT_FROM_EMAIL", default="disposify <noreply@example.com>"
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = env("DJANGO_SERVER_EMAIL", default=DEFAULT_FROM_EMAIL)
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
-EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default="[wasteline]")
+EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default="[disposify]")
 
 # ADMIN
 # ------------------------------------------------------------------------------

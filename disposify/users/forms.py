@@ -34,7 +34,7 @@ class UserCreationForm(forms.UserCreationForm):
         raise ValidationError(self.error_messages["duplicate_username"])
 
 
-class WastelineSignUpForm(SignupForm):
+class disposifySignUpForm(SignupForm):
 
     type = d_forms.ChoiceField(
         choices=[("customer", "CUSTOMER"), ("collector", "COLLECTOR")]

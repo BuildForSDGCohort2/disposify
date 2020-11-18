@@ -6,8 +6,8 @@ from pathlib import Path
 import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
-# wasteline/
-APPS_DIR = ROOT_DIR / "wasteline"
+# disposify/
+APPS_DIR = ROOT_DIR / "disposify"
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
@@ -41,7 +41,7 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///wasteline")}
+DATABASES = {"default": env.db("DATABASE_URL", default="postgres:///disposify")}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
@@ -79,7 +79,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "theme",
-    "wasteline.users.apps.UsersConfig",
+    "disposify.users.apps.UsersConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -87,7 +87,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "wasteline.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "disposify.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "wasteline.utils.context_processors.settings_context",
+                "disposify.utils.context_processors.settings_context",
             ],
         },
     }
@@ -293,12 +293,12 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = "wasteline.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "disposify.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = "wasteline.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "disposify.users.adapters.SocialAccountAdapter"
 # my custom signup form
 ACCOUNT_FORMS = {
-    "signup": "wasteline.users.forms.WastelineSignUpForm",
+    "signup": "disposify.users.forms.disposifySignUpForm",
 }
 
 # django-rest-framework

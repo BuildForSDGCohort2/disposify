@@ -1,6 +1,6 @@
 from django.urls import path
 
-from wasteline.users.views import (
+from disposify.users.views import (
     user_detail_view,
     user_redirect_view,
     user_update_view,

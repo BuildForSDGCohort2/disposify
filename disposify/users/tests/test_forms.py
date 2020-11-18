@@ -1,7 +1,7 @@
 import pytest
 
-from wasteline.users.forms import UserCreationForm
-from wasteline.users.tests.factories import UserFactory
+from disposify.users.forms import UserCreationForm
+from disposify.users.tests.factories import UserFactory
 
 pytestmark = pytest.mark.django_db
 

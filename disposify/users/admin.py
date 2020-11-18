@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
 
-from wasteline.users.forms import UserChangeForm, UserCreationForm
-from wasteline.users.models import Customer, Collector
+from disposify.users.forms import UserChangeForm, UserCreationForm
+from disposify.users.models import Customer, Collector
 
 User = get_user_model()
 

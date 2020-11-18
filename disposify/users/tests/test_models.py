@@ -1,6 +1,6 @@
 import pytest
 
-from wasteline.users.models import User
+from disposify.users.models import User
 
 pytestmark = pytest.mark.django_db
 

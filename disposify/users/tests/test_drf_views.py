@@ -1,8 +1,8 @@
 import pytest
 from django.test import RequestFactory
 
-from wasteline.users.api.views import UserViewSet
-from wasteline.users.models import User
+from disposify.users.api.views import UserViewSet
+from disposify.users.models import User
 
 pytestmark = pytest.mark.django_db
 

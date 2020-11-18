@@ -3,9 +3,9 @@ from django.contrib.auth.models import AnonymousUser
 from django.http.response import Http404
 from django.test import RequestFactory
 
-from wasteline.users.models import User
-from wasteline.users.tests.factories import UserFactory
-from wasteline.users.views import (
+from disposify.users.models import User
+from disposify.users.tests.factories import UserFactory
+from disposify.users.views import (
     UserRedirectView,
     UserUpdateView,
     user_detail_view,
